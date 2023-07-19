@@ -26,10 +26,11 @@ void bubble_sort(int *array, size_t size)
 					print_array(array, size);
 				}
 			}
-
+			/* if no swap happened it is sored break*/
 			if (swap == 0)
 				break;
 		}
 	}
+	return;
 
 }
