@@ -46,24 +46,32 @@ void sort(int *array, int low, int high, size_t size)
  */
 int partition(int *array, int low, int high, size_t size)
 {
-	int pivot, i, j, temp;
+	int i = 0, j = 0, pivot = 0, aux = 0;
 
 	pivot = array[high];
-	i = low - 1;
-	for (j = low; j <= high - 1; j++)
+	i = low;
+
+	for (j = low; j < high; ++j)
 	{
 		if (array[j] < pivot)
 		{
-			i++;
-			temp = array[i];
+			aux = array[i];
 			array[i] = array[j];
-			array[j] = temp;
-			print_array(array, size);
+			array[j] = aux;
+
+			if (aux != array[i])
+				print_array(array, size);
+
+			++i;
 		}
 	}
-	temp = array[i + 1];
-	array[i + 1] = array[high];
-	array[high] = temp;
-	print_array(array, size);
-	return (i + 1);
+
+	aux = array[i];
+	array[i] = array[high];
+	array[high] = aux;
+
+	if (aux != array[i])
+		print_array(array, size);
+
+	return (i);
 }
