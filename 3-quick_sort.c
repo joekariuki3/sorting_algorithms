@@ -11,7 +11,7 @@ void quick_sort(int *array, size_t size)
 
 	if (size > 1 && array != NULL)
 	{
-		lb = size - size ;
+		lb = size - size;
 		ub = size - 1;
 		sort(array, lb, ub, size);
 	}
