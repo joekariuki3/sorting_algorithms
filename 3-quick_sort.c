@@ -7,73 +7,63 @@
  */
 void quick_sort(int *array, size_t size)
 {
-	int lb, ub;
+	int low, high;
 
 	if (size > 1 && array != NULL)
 	{
-		lb = size - size;
-		ub = size - 1;
-		sort(array, lb, ub, size);
+		low = size - size;
+		high = size - 1;
+		sort(array, low, high, size);
 	}
 }
 
 /**
  * sort - does the sorting logic
  * @array: number of elements
- * @lb: first element in @array
- * @ub: last element in @array
+ * @low: first element in @array
+ * @high: last element in @array
  * @size: size of array
  */
-void sort(int *array, int lb, int ub, size_t size)
+void sort(int *array, int low, int high, size_t size)
 {
-	int loc;
+	int pivot_index;
 
-	if (lb < ub)
+	if (low < high)
 	{
-		loc = partition(array, lb, ub, size);
-		sort(array, lb, loc - 1, size);
-		sort(array, loc + 1, ub, size);
+		pivot_index = partition(array, low, high, size);
+		sort(array, low, pivot_index - 1, size);
+		sort(array, pivot_index + 1, high, size);
 	}
 }
 
 /**
  * partition - does the partition logic
  * @array: number of elements
- * @lb: first element in @array
- * @ub: last element in @array
+ * @low: first element in @array
+ * @high: last element in @array
  * @size: size or array
  * Return: int
  */
-int partition(int *array, int lb, int ub, size_t size)
+int partition(int *array, int low, int high, size_t size)
 {
-	int pivot, start, end, temp;
+	int pivot, i, j, temp;
 
-	pivot = array[lb];
-	start = lb;
-	end = ub;
-
-	while (start < end)
+	pivot = array[high];
+	i = low - 1;
+	for (j = low; j <= high - 1; j++)
 	{
-		while (array[start] <= pivot)
+		if (array[j] < pivot)
 		{
-			start++;
-		}
-		while (array[end] > pivot)
-		{
-			end--;
-		}
-		if (start < end)
-		{
-			temp = array[start];
-			array[start] = array[end];
-			array[end] = temp;
+			i++;
+			temp = array[i];
+			array[i] = array[j];
+			array[j] = temp;
 			print_array(array, size);
 		}
 	}
-	temp = array[lb];
-	array[lb] = array[end];
-	array[end] = temp;
+	temp = array[i + 1];
+	array[i + 1] = array[high];
+	array[high] = temp;
 	print_array(array, size);
-
-	return (end);
+	return (i + 1);
 }
