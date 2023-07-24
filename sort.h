@@ -31,23 +31,4 @@ int partition(int *array, int lb, int ub, size_t size);
 void sort(int *array, int lb, int ub, size_t size);
 void swap(int *arr, int i, int j);
 void shell_sort(int *array, size_t size);
-
-
-/**
- * swap - exchange location of two values
- * @arr: elements in the list
- * @i: first value index
- * @j: second value index
- */
-void swap(int *arr, int i, int j)
-{
-	int temp;
-
-	if (arr != NULL)
-	{
-		temp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = temp;
-	}
-}
 #endif

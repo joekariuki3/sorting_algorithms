@@ -20,3 +20,21 @@ void print_array(const int *array, size_t size)
 	}
 	printf("\n");
 }
+
+/**
+ * swap - exchange location of two values
+ * @arr: elements in the list
+ * @i: first value index
+ * @j: second value index
+ */
+void swap(int *arr, int i, int j)
+{
+	int temp;
+
+	if (arr != NULL)
+	{
+		temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+}
