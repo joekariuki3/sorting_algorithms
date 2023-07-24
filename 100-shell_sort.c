@@ -27,7 +27,7 @@ void shell_sort(int *array, size_t size)
 	size_t gap = 1, j = 0;
 	int i = 0;
 
-	if (array != NULL || size > 1)
+	if (array != NULL && size > 1)
 	{
 		/* get initial gap value */
 		for (gap = 3 * gap + 1; gap >= 1; gap = gap / 3)
