@@ -1,5 +1,6 @@
 #include"sort.h"
 
+#include"sort.h"
 /**
  * swap - exchange location of two values
  * @arr: elements in the list
@@ -17,7 +18,6 @@ void swap(int *arr, int i, int j)
 		arr[j] = temp;
 	}
 }
-
 /**
  * bubble_sort - sorts an array in assending order
  * @array: intagers to be sorted

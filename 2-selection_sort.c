@@ -1,6 +1,23 @@
 #include"sort.h"
 
 /**
+ * swap - exchange location of two values
+ * @arr: elements in the list
+ * @i: first value index
+ * @j: second value index
+ */
+void swap(int *arr, int i, int j)
+{
+	int temp;
+
+	if (arr != NULL)
+	{
+		temp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = temp;
+	}
+}
+/**
  * selection_sort - sorts an array in assending order
  * @array: pointer to the elements to be sorted
  * @size: number of items in @array
